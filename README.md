@@ -6,7 +6,7 @@ My PHP & jQuery Card Game project, with front-end built using Tailwind CSS, Dock
 This is a PHP + jQuery web application for the assignment, containerized using Docker.
 The environment includes:
 - PHP 8.2 with Apache
-- jQuery (included via CDN)
+- jQuery 3.7.0 (included via CDN)
 - tailwind.css (included via CDN)
 - All code is in the `src/` folder
 

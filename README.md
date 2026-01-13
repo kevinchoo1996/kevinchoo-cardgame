@@ -37,7 +37,7 @@ Here is how the app looks in the browser:
 
 # Part B
 ## Description
-Attached in this repository is an SQL file called `(B) SQL Improvement Logic Test.sql`.  
+Attached in this repository is an SQL file called [(B) SQL Improvement Logic Test.sql](https://github.com/kevinchoo1996/kevinchoo-cardgame/blob/main/(B)%20SQL%20Improvement%20Logic%20Test.sql).  
 This file contains the updated query designed to improve performance.
 
 ## Changes Made

@@ -46,7 +46,7 @@ This file contains the updated query designed to improve performance.
 
 ## Potential Further Improvements
 - Added indexes to improve query performance:
-  - **Jobs\_* tables:** `job_id` (for all related tables like `jobs_personalities`, `jobs_practical_skills`, etc.)  
+  - **Jobs\_* tables:* `job_id` (for all related tables like `jobs_personalities`, `jobs_practical_skills`, etc.)  
   - **Full-text index** on text columns in `Jobs` (`name`, `description`, `detail`, `business_skill`, `knowledge`, `location`, `activity`, `salary_statistic_group`, `salary_range_remarks`, `restriction`, `remarks`) to speed up `LIKE '%…%'` searches.
 
 > These indexes allow the database to locate rows more efficiently, reducing query executio

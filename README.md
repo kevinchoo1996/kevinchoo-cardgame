@@ -1,7 +1,7 @@
 # kevinchoo-cardgame
 My PHP & Jquery Card Game as well as Optimized SQL
 
-## Part A
+# Part A
 ## Description
 This is a PHP + jQuery web application for the assignment, containerized using Docker.
 The environment includes:
@@ -30,3 +30,23 @@ This project was developed with the support of ChatGPT. The AI was used to assis
 ## App Screenshot
 Here is how the app looks in the browser:
 ![Running PHP + jQuery app](assets/screenshot.png)
+
+## Development Time
+- **Understanding the requirements:** 45 minutes  
+- **Completing the code:** 30 minutes
+
+# Part B
+## Description
+Attached in this repository is an SQL file called `(B) SQL Improvement Logic Test.sql`.  
+This file contains the updated query designed to improve performance.
+
+## Changes Made
+- Reduced the number of `LEFT JOIN`s in the query and replaced them with `EXISTS`, as most of the original `LEFT JOIN`s were only used for `WHERE ... LIKE` checks.  
+- Updated the queries to search using the last 50 offsets first before joining, which reduces the number of columns processed in the joins.
+
+## AI Tools Used
+This query was developed with the assistance of **ChatGPT**. The AI helped clean up and rebuild the SQL queries to make them cleaner and easier to read.
+
+## Development Time
+- **Understanding the requirements:** 45 minutes  
+- **Completing the query:** 45 minutes

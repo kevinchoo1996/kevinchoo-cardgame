@@ -44,6 +44,13 @@ This file contains the updated query designed to improve performance.
 - Reduced the number of `LEFT JOIN`s in the query and replaced them with `EXISTS`, as most of the original `LEFT JOIN`s were only used for `WHERE ... LIKE` checks.  
 - Updated the queries to search using the last 50 offsets first before joining, which reduces the number of columns processed in the joins.
 
+## Potential Further Improvements
+- Added indexes to improve query performance:
+  - **Jobs_* tables:** `job_id` (for all related tables like `jobs_personalities`, `jobs_practical_skills`, etc.)  
+  - **Full-text index** on text columns in `Jobs` (`name`, `description`, `detail`, `business_skill`, `knowledge`, `location`, `activity`, `salary_statistic_group`, `salary_range_remarks`, `restriction`, `remarks`) to speed up `LIKE '%…%'` searches.
+
+> These indexes allow the database to locate rows more efficiently, reducing query executio
+
 ## AI Tools Used
 This query was developed with the assistance of **ChatGPT**. The AI helped clean up and rebuild the SQL queries to make them cleaner and easier to read.
 

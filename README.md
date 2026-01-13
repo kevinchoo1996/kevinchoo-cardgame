@@ -20,7 +20,7 @@ The environment includes:
 2. Start Docker via `docker-compose up --build`
 3. Open Local Browser to access Webpage via http://localhost:8080
 
-##AI Tools Used
+## AI Tools Used
 This project was developed with the support of ChatGPT. The AI was used to assist with specific parts of the project:
   - **Front-end UI (Tailwind CSS)**: ChatGPT helped generate and structure the HTML and Tailwind classes to speed up building the user interface.  
   - **Docker setup**: ChatGPT provided guidance and generated the `Dockerfile` and `docker-compose.yml` configuration for running PHP, HTML, and CSS files inside Docker.  

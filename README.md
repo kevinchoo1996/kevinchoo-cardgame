@@ -1,5 +1,5 @@
 # kevinchoo-cardgame
-My PHP & Jquery Card Game as well as Optimized SQL
+My PHP & jQuery Card Game project, with front-end built using Tailwind CSS, Docker setup for easy deployment, and optimized SQL queries for performance improvements.
 
 # Part A
 ## Description

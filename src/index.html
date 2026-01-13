@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Distribution</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+
+    <h2 class="text-2xl font-bold mb-4">Card Distribution</h2>
+
+    <div class="mb-4">
+        <label for="numberOfPlayers" class="mr-2 font-medium">Number of Players:</label>
+        <input type="number" id="numberOfPlayers" min="1" max="100" class="border border-gray-300 rounded px-2 py-1">
+        <button id="submitBtn" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Distribute</button>
+    </div>
+
+    <h3 class="text-xl font-semibold mb-2">Output:</h3>
+    <div id="output" class="w-full max-w-xl bg-white p-4 border rounded shadow"></div>
+
+    <div id="playerHands" class="w-full max-w-xl bg-gray-100 p-4 border rounded shadow mt-4" style="display:none;">
+        <h3 class="text-xl font-semibold mb-2">Player Hands:</h3>
+        <div id="handsContent"></div>
+    </div>
+
+
+    <script>
+    $(document).ready(function() {
+        //Function to prevent from adding more than 100 as of right now. (Optional and doesn't do anything more than display)
+        $('#numberOfPlayers').on('input', function() {
+            let val = parseInt(this.value, 10);
+            if (val > 100) this.value = 100;
+            if (val < 1) this.value = 1;
+        });
+
+        // AJAX Function to submit the number of players to PHP
+        $('#submitBtn').click(function() {
+            var numberOfPlayers = $('#numberOfPlayers').val();
+
+            $.ajax({
+                url: 'cards.php',
+                type: 'POST',
+                data: { number: numberOfPlayers },
+                success: function(response) {
+                    //Return Raw Output Response
+                    $('#output').html(response);
+
+                    //Return A Listing Display Of Each Player's Card. (Optional and just done for display)
+                    const playerHandsArray = response.split(' ');
+                    const totalPlayers = parseInt(numberOfPlayers, 10);
+                
+                    let handsHTML = '';
+
+                    for (let i = 0; i < totalPlayers; i++) {
+                        const hand = playerHandsArray[i] || '';
+                        handsHTML += `<div><strong>Player ${i + 1}:</strong> ${hand}</div>`;
+                    }
+
+                    $('#handsContent').html(handsHTML);
+                    $('#playerHands').show();
+                },
+                error: function(xhr) {
+                    $('#output').html('<span class="text-red-500">' + xhr.responseText + '</span>');
+                    $('#playerHands').hide();
+                }
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
